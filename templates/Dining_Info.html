@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div.container {
+    width: 100%;
+    border: 1px solid gray;
+}
+
+header, footer {
+    padding: 1em;
+    color: white;
+    background-color: #D44500;
+    clear: left;
+    text-align: center;
+}
+
+nav {
+    float: left;
+    max-width: 160px;
+    margin: 0;
+    padding: 1em;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+   
+nav ul a {
+    text-decoration: none;
+}
+</style>
+<style>
+div.gallery {
+    border: 1px solid #ccc;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.responsive {
+    padding: 0 6px;
+    float: left;
+    width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px) {
+    .responsive {
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .responsive {
+        width: 100%;
+    }
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<header>
+  <h1>Syracuse University</h1>
+  <h3>Dining Workforce Schedule Management </h3>
+ </header>
+ 
+<h1><center>Dining Information</center></h1>
+<center><h2>Click on any dining halls for detailed information.</h2></center>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="Images/ErnieD.jpeg">
+      <img src="Images/ErnieD.jpeg" alt="Ernie Davis Dining Center" width="300" height="200">
+    </a>
+    <div class="desc">Ernie Davis Dining Center</div>
+    
+  </div>
+</div>
+
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="Images/SadlerD1.jpeg">
+      <img src="Images/SadlerD1.jpeg" alt="Sadler Dining" width="600" height="400">
+    </a>
+    <div class="desc">Sadler Dining Center</div>
+  </div>
+</div>
+   <!--  <p style="clear: both;"> -->
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="Images/GrahamD.jpg">
+      <img src="Images/GrahamD.jpg" alt="Graham Dining" width="600" height="400">
+    </a>
+    <div class="desc">Graham Dining Center</div>
+  </div>
+</div>
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="Images/ShawD.jpeg">
+      <img src="Images/ShawD.jpeg" alt="Shaw Dining" width="600" height="400">
+    </a>
+    <div class="desc">Shaw Dining Center</div>
+  </div>
+</div>
+<p style="clear: both;">
+
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="Images/GoldsteinD.jpg">
+      <img src="Images/GoldsteinD.jpg" alt="Goldstein Dining" width="600" height="400">
+    </a>
+    <div class="desc">Goldstein Dining</div>
+  </div>
+</div>
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="Images/BrockwayD.jpeg">
+      <img src="Images/BrockwayD.jpeg" alt="Brockway Dining" width="600" height="400">
+    </a>
+    <div class="desc">Brockway Dining Center</div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+<div style="padding:6px;">
+<p>Syracuse University Food Services operates five residential dining centers on main
+campus, plus Goldstein Dining on south campus. These facilities serve more than
+7,200 students on meal plans. Dining centers are conveniently located in residence
+halls around campus. All the dining centers serve the same menu and students on
+the meal plan are welcome to eat in any dining center to try a change of scenery. </p>
+  <p>Click on any of the above images to access more information related to timings and point of contact.</p>
+  <p>If you could not find your stuff, write us @ . We will get back to you shortly.</p>
+</div>
+</body>
+</html>

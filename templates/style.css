@@ -1,0 +1,45 @@
+body {
+	font-family :"Times New Roman", Times, serif ;
+	margin : 0;
+	padding : 0 ;
+}
+
+header {
+	background : #D44500 ;
+}
+
+.nav{
+	background-color : white;
+	list-style : none ;
+	text-align : right ;
+}
+
+.nav > li {
+	display : inline-table ;
+	padding-right: 30px ;
+	font-size : 20px ;
+}
+
+.nav > li > a {
+	text-decoration : none ;
+	color :black ;
+	text-align : bottom ;
+}
+.nav > li > a:hover {
+	color : gray;
+}
+
+.logo {
+	font-size :70px ;
+	font-weight : 100 ;
+	color : white ;
+	text-align : center ;
+}
+.sublogo
+{
+	font-size :25px ;
+	font-weight : 75 ;
+	color : white ;
+	text-align : center ;
+}
+
