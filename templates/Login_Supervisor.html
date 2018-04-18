@@ -114,13 +114,26 @@ span.psw {
 
 
 <center><h2>Login as Supervisor</h2></center>
-
+ {% if error %}
+      <p><strong>Error:</strong> {{ error }}
+ {% endif %}
+      
 <form action="AuthenticateSupervisor">
   <div class="imgcontainer">
-    <img src="/Images/Supervisor.jpeg" alt="Supervisor Avatar" class="avatar">
+    <img src="{{ url_for('static',filename='Images/Supervisor.jpeg')}}" alt="Supervisor Avatar" class="avatar">
   </div>
 
   <div class="container">
+   {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <script>
+      var messages = {{ messages | safe }};
+      for (var i=0; i<messages.length; i++) {
+        alert(messages[i]);
+      }
+    </script>
+  {% endif %}
+{% endwith %}
   <center>  <label for="uname"><b>Username</b></label></center>
   <center>  <input type="text" placeholder="Enter Username" name="uname" required></center>
 

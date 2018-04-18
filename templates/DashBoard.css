@@ -1,0 +1,163 @@
+.container {
+    width: 100%;
+    display : block;
+}
+
+.mainContainer {
+    display : flex;
+}
+header, footer {
+    padding: 1em;
+    color: white;
+    background-color: #D44500;
+    clear: left; 
+}
+
+h2{
+	text-align: center;
+}
+
+/* Style the tab */
+.tab {
+    float: left;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    width: 20%;
+	height: inherit;
+	display : block;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+    background-color: #ccc;
+	color: #D44500;
+}
+
+/* Style the tab content */
+.tabcontent {
+    float: left;
+    padding: 0px 12px;
+    border: 1px solid #ccc;
+    border-left: none;
+	display : block;
+}
+
+ .centered {
+ text-align: center;
+ }
+ 
+#subShiftBlock {
+   width: 100%;
+   display : none;
+   padding: 20px;
+}
+#hoursBlock {
+   width: 100%;
+   display : none;
+   padding: 20px;
+}
+
+form {
+   width: inherit;
+}
+
+#detailsContainer {
+   width: 30%;
+   padding: 20px;
+}
+
+#schedularBlock {
+	width: 50%;
+	display: block;
+}
+
+.shiftDetailsTable {
+   padding: 20px;
+}
+
+th, td {
+ padding: 10px;
+
+}
+
+.btn {
+	color: white;
+    background-color: #D44500;
+	border-radius: 8px;
+}
+
+.grnBtn {
+	color: white;
+    background-color: #009900;
+	border-radius: 8px;
+}
+
+#HoursSummary {
+	width: 100%;
+	align-content: center;
+	border: none !important;
+	margin : 20px;
+	margin-left: 50px;
+}
+
+#Complaint {
+	width: 100%;
+	align-content: center;
+	height:100%;
+	border: none !important;
+	margin : 20px;
+	margin-left: 50px;
+}
+#Contact {
+	width: 100%;
+	align-content: center;
+	height:100%;
+	border: none !important;
+	margin : 20px;
+	margin-left: 50px;
+}
+ 
+#contactDetails {
+	display: flex;
+}
+
+.contactDetailsTable {
+	margin-left: 50px;
+}
+
+html{
+    min-height:100%;/* make sure it is at least as tall as the viewport */
+    position:relative;
+}
+
+body{
+    height:100%; /* force the BODY element to match the height of the HTML element */
+}
+
+.tab-pane {
+	margin : 20px;
+}
+
+#disable {
+	background-color: "Gray";
+}

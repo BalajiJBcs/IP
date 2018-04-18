@@ -1,0 +1,20 @@
+.box{
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+  border: 1px solid rgba(0, 0, 0, .2);
+}
+
+.workedHours{
+	background : #D44500;
+}
+
+.remainingHours{
+	background : #000066;
+}
+
+#HoursSummary p {
+	margin : 20px;
+	margin-left: 30px;
+}

@@ -19,9 +19,9 @@ header, footer {
 
 nav {
     float: left;
-    max-width: 160px;
+    max-width: 360px;
     margin: 0;
-    padding: 1em;
+    padding: 0;
 }
 
 nav ul {
@@ -42,14 +42,23 @@ div.gallery:hover {
     border: 1px solid #777;
 }
 
+tr:hover {
+	background-color: #ccc;
+	
+}
+
 div.gallery img {
-    width: 100%;
-    height: auto;
+    width: 370%;
+    height: 300%;
+	 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 
 div.desc {
-    padding: 15px;
-    text-align: center;
+    padding: 60px;
+	max-width: 100%;
+	text-transform: uppercase;
+	font-weight: bold;
 }
 
 * {
@@ -80,6 +89,8 @@ div.desc {
     display: table;
     clear: both;
 }
+
+
 </style>
 </head>
 <body>
@@ -92,64 +103,94 @@ div.desc {
  
 <h1><center>Dining Information</center></h1>
 <center><h2>Click on any dining halls for detailed information.</h2></center>
-
+<table>
+<tr>
+<td>
 <div class="responsive">
   <div class="gallery">
     <a target="_blank" href="Images/ErnieD.jpeg">
-      <img src="Images/ErnieD.jpeg" alt="Ernie Davis Dining Center" width="300" height="200">
+      <img src="Images/ErnieD.jpeg" alt="Ernie Davis Dining Center" class="img_style">
     </a>
+	  </div>
+</div>
+	</td>
+	<td>
     <div class="desc">Ernie Davis Dining Center</div>
     
-  </div>
-</div>
-
-
+</td>
+</tr>
+<tr>
+<td>
 <div class="responsive">
   <div class="gallery">
     <a target="_blank" href="Images/SadlerD1.jpeg">
-      <img src="Images/SadlerD1.jpeg" alt="Sadler Dining" width="600" height="400">
+      <img src="Images/SadlerD1.jpeg" alt="Sadler Dining" class="img_style">
     </a>
-    <div class="desc">Sadler Dining Center</div>
-  </div>
+	  </div>
 </div>
-   <!--  <p style="clear: both;"> -->
-
+	</td>
+	<td width="70%">
+    <div class="desc">Sadler Dining Center</div>
+</td>
+</tr>
+<tr>
+<td>
 <div class="responsive">
   <div class="gallery">
     <a target="_blank" href="Images/GrahamD.jpg">
-      <img src="Images/GrahamD.jpg" alt="Graham Dining" width="600" height="400">
+      <img src="Images/GrahamD.jpg" alt="Graham Dining" class="img_style">
     </a>
-    <div class="desc">Graham Dining Center</div>
-  </div>
+	</div>
 </div>
+	</td>
+	<td>
+    <div class="desc">Graham Dining Center</div>
+  </td>
+</tr>
+<tr>
+<td>
 <div class="responsive">
   <div class="gallery">
     <a target="_blank" href="Images/ShawD.jpeg">
-      <img src="Images/ShawD.jpeg" alt="Shaw Dining" width="600" height="400">
+      <img src="Images/ShawD.jpeg" alt="Shaw Dining" class="img_style">
     </a>
-    <div class="desc">Shaw Dining Center</div>
-  </div>
+	</div>
 </div>
-<p style="clear: both;">
-
+	</td>
+	<td>
+    <div class="desc">Shaw Dining Center</div>
+  </td>
+</tr>
+<tr>
+<td>
 
 <div class="responsive">
   <div class="gallery">
     <a target="_blank" href="Images/GoldsteinD.jpg">
-      <img src="Images/GoldsteinD.jpg" alt="Goldstein Dining" width="600" height="400">
+      <img src="Images/GoldsteinD.jpg" alt="Goldstein Dining" class="img_style">
     </a>
-    <div class="desc">Goldstein Dining</div>
-  </div>
+	</div>
 </div>
+	</td>
+	<td>
+    <div class="desc">Goldstein Dining</div>
+ </td>
+</tr>
+<tr>
+<td>
 <div class="responsive">
   <div class="gallery">
     <a target="_blank" href="Images/BrockwayD.jpeg">
-      <img src="Images/BrockwayD.jpeg" alt="Brockway Dining" width="600" height="400">
+      <img src="Images/BrockwayD.jpeg" alt="Brockway Dining" class="img_style">
     </a>
-    <div class="desc">Brockway Dining Center</div>
-  </div>
+	</div>
 </div>
-
+	</td>
+	<td>
+    <div class="desc">Brockway Dining Center</div>
+  </td>
+</tr>
+</table>
 <div class="clearfix"></div>
 
 <div style="padding:6px;">
