@@ -15,14 +15,17 @@
 	<script src="{{ url_for('static',filename='Chart/Chart.js')}}" type="text/JavaScript"></script>
 	<link rel="stylesheet" href="{{ url_for('static',filename='Chart/chart.css')}}">
 	<link rel="stylesheet" href="{{ url_for('static',filename='Complain/complaint.css')}}">
-	<script src="{{ url_for('static',filename='Contact/ContactUs.js')}}"></script>
-</head>
+	<script src="{{ url_for('static',filename='Scheduler/ReachUs.js')}}"></script>
+			<script>
+			    var diningHall = {{variable1}};
+				alert(diningHall);
+			</script>
 </head>
 <body>
 <div class="container">
 <header>
 <!-- <h1 style="font-size:5vw;">Syracuse University</h1> -->
-   <h2>Welcome User <Username></h2>
+   <h2>Welcome {{variable}} !</h2>
    <span class="glyphicon glyphicon-user"></span>
 </header>
 <div class="mainContainer">
@@ -126,11 +129,12 @@
 				<td><label id="manager"></label></td>
 			 </tr>
 			 <tr>
-				<th><label><span class="glyphicon glyphicon-envelope">  Email: </span></label></th>
+				<th><label><span class="glyphicon glyphicon-envelope">  Email:</span></label></th>
 				<td><label id="email"></label></td>
 			 </tr>
 			</table>
-			<script>updateContact();</script>
+			<p id="tag"></p>
+				<script>updateContact(diningHall);</script>
 		</div>
 	</div>
 	<div id="LogOut" class="tabcontent">

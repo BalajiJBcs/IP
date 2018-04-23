@@ -4,6 +4,7 @@ var clikedEvent;
 var $availableShiftCal = $("#availableShiftsCalender").fullCalendar("getCalendar");
 
 $(document).ready(function(){
+	
 	$('#DashBoard a[data-toggle="tab"]').bind('click', function (e) {
             document.getElementById('subShiftBlock').style.display = "none";
         });

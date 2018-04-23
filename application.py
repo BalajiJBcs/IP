@@ -14,7 +14,6 @@ mysql.init_app(app)
 def main():
     return render_template('LoginPage1.html')
    
-
 @app.route("/showSignUp_student")
 def showSignUp_student():
     return render_template('Login_Student.html')
@@ -22,13 +21,21 @@ def showSignUp_student():
 @app.route("/showSignUp_supervisor")
 def showSignUp_supervisor():
     return render_template('Login_Supervisor.html')
-
+    
 @app.route("/dashboard_student")
 def dashboard_student(username):
     if not session.get(username):
         return render_template('Login_Student.html')
     else:
-        return render_template('DashBoard.html')
+        cursor = mysql.connect().cursor()
+        cursor.execute("select diningName from DiningHalls where diningName in ( select userWorkPlace from User where netID = '"+username+"')")
+        dining_hall = cursor.fetchall();
+        v = "Sadler";
+        for row in dining_hall:
+            variable1 = row[0];
+        print(variable1)
+        print(v)
+        return render_template('DashBoard.html',variable=username,variable1=v)
 
 @app.route("/dashboard_supervisor")
 def dashboard_supervisor(username):
