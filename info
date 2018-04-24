@@ -1,0 +1,28 @@
+mysql> CREATE TABLE User(
+    ->     userName VARCHAR(50) NOT NULL,
+    ->     SUID INT(9) NOT NULL,
+    ->     netID VARCHAR(8) NOT NULL,
+    ->     userPassword VARCHAR(50) NOT NULL,
+    ->     userDesignation VARCHAR(20) NOT NULL,
+    ->     userWorkPlace VARCHAR(50) NOT NULL,
+    ->     PRIMARY KEY(SUID,netID)
+    ->     );
+Query OK, 0 rows affected (0.73 sec)
+
+mysql> insert into User values('Saumya Sharma','123456789','ssharm29','pollengrains','Student','Ernie Davis');
+insert into User values('Anuja Mahajan','234617235','apmahaja','bubbles','Student','Sadler');
+Query OK, 1 row affected (0.08 sec)
+
+CREATE TABLE DiningHalls(
+diningName VARCHAR (50) NOT NULL,
+diningAddress VARCHAR(100) NOT NULL,
+diningPhone VARCHAR(12) NOT NULL,
+diningManager VARCHAR(30) NOT NULL,
+diningEmail VARCHAR(50) NOT NULL,
+PRIMARY KEY(diningName)
+);
+
+insert into DiningHalls values('Sadler','100 Irving Avenue','315-443-2449','Debbie Lawson','dgriffo@syr.edu');
+insert into DiningHalls values('Ernie Davis','601 Comstock Avenue','315-443-1450','Stephen Brandt','sjbrandt@syr.edu');
+
+select diningName from DinigHalls where diningName in ( select userWorkPlace from User where netID = ssharm29);
