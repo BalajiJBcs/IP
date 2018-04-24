@@ -24,7 +24,7 @@ def showSignUp_supervisor():
     
 @app.route("/dashboard_student")
 def dashboard_student(username):
-    if not session.get(username):
+    if not session.get('logged_in'):
         return render_template('Login_Student.html')
     else:
         cursor = mysql.connect().cursor()
@@ -35,14 +35,22 @@ def dashboard_student(username):
             variable1 = row[0];
         print(variable1)
         print(v)
-        return render_template('DashBoard.html',variable=username,variable1=v)
+        return render_template('DashBoard.html',variable=username,variable1=variable1)
 
 @app.route("/dashboard_supervisor")
 def dashboard_supervisor(username):
-    if not session.get(username):
+    if not session.get('logged_in'):
         return render_template('Login_Supervisor.html')
     else:
-        return render_template('DashBoardSupervisor.html')
+        cursor = mysql.connect().cursor()
+        cursor.execute("select diningName from DiningHalls where diningName in ( select userWorkPlace from User where netID = '"+username+"')")
+        dining_hall = cursor.fetchall();
+        v = "Sadler";
+        for row in dining_hall:
+            variable1 = row[0];
+        print(variable1)
+        print(v)
+        return render_template('DashBoardSupervisor.html',variable=username,variable1=variable1)
 
 @app.route("/AuthenticateStudent")
 def AuthenticateStudent():
@@ -55,7 +63,7 @@ def AuthenticateStudent():
         flash("Username or Password is wrong")
         return redirect(url_for('showSignUp_student'))
     else:
-        session[username] = True;
+        session['logged_in'] = True;
         return dashboard_student(username)
 
 @app.route("/AuthenticateSupervisor")
@@ -69,7 +77,14 @@ def AuthenticateSupervisor():
         flash("Username or Password is wrong")
         return redirect(url_for('showSignUp_supervisor'))
     else:
+        session['logged_in']=True;
         return "Logged in successfully"
+
+@app.route("/logout")
+def logout():
+    session.pop('logged_in',None)
+    #flash('You have logged out!')
+    return redirect(url_for('main'))
 
 if __name__ == "__main__":
     app.run()

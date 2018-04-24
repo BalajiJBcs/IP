@@ -26,7 +26,8 @@
 <header>
 <!-- <h1 style="font-size:5vw;">Syracuse University</h1> -->
    <h2>Welcome {{variable}} !</h2>
-   <span class="glyphicon glyphicon-user"></span>
+   
+   <span class="glyphicon glyphicon-user"></span><h4 class="logoutBtn"><a href="/logout">LogOut</a></h4>
 </header>
 <div class="mainContainer">
 	<div class="tab"> 
@@ -40,8 +41,8 @@
 	  <span class="glyphicon glyphicon-flash"></span>   Warnings</button>	
 	  <button class="tablinks" onclick="getActiveTabElement(event,'Contact')">
 		<span class="glyphicon glyphicon-envelope"></span>   Contact</button>
-	  <button class="tablinks" onclick="getActiveTabElement(event,'LogOut')">
-	  <span class="glyphicon glyphicon-off"></span>   Log Out</button> 
+	 <!-- <button class="tablinks" onclick="getActiveTabElement(event,'Logout')">
+	  <span class="glyphicon glyphicon-off"> Log Out</span></button>  -->
 	</div>
 	<div id="schedularBlock">
 	<div id="DashBoard" class="tabcontent">
