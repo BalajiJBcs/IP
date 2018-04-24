@@ -6,7 +6,7 @@ mysql = MySQL()
 app = Flask(__name__,static_url_path="", static_folder="templates")
 app.secret_key = 'random string'
 app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'hello'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'oracle'
 app.config['MYSQL_DATABASE_DB'] = 'EmpData'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 mysql.init_app(app)
@@ -25,7 +25,7 @@ def showSignUp_supervisor():
     
 @app.route("/dashboard_student")
 def dashboard_student(username):
-    if not session.get('logged_in'):
+    if not session.get(username):
         return render_template('Login_Student.html')
     else:
         cursor = mysql.connect().cursor()
@@ -43,9 +43,10 @@ def dashboard_student(username):
 
 @app.route("/dashboard_supervisor")
 def dashboard_supervisor(username):
-    if not session.get('logged_in'):
+    if not session.get(username):
         return render_template('Login_Supervisor.html')
     else:
+<<<<<<< HEAD
         cursor = mysql.connect().cursor()
         cursor.execute("select diningName from DiningHalls where diningName in ( select userWorkPlace from User where netID = '"+username+"')")
         dining_hall = cursor.fetchall();
@@ -57,6 +58,8 @@ def dashboard_supervisor(username):
             user_name = row[0]; 
         print(diningHall)
         print(user_name)
+=======
+>>>>>>> 626aaa2593ec180b904fcc2a3f26523de964a940
         return render_template('DashBoardSupervisor.html')
 
 @app.route("/AuthenticateStudent")
@@ -70,7 +73,7 @@ def AuthenticateStudent():
         flash("Username or Password is wrong")
         return redirect(url_for('showSignUp_student'))
     else:
-        session['logged_in'] = True;
+        session[username] = True;
         return dashboard_student(username)
 
 @app.route("/AuthenticateSupervisor")
@@ -84,6 +87,7 @@ def AuthenticateSupervisor():
         flash("Username or Password is wrong")
         return redirect(url_for('showSignUp_supervisor'))
     else:
+<<<<<<< HEAD
         session['logged_in'] = True;
         return dashboard_student(username)
 
@@ -146,6 +150,65 @@ def logout():
     session.pop('logged_in',None)
     #flash('You have logged out!')
     return redirect(url_for('main'))
+=======
+        return "Logged in successfully"
+
+
+@app.route("/MySchedule")   
+def mySchedule():
+    cursor = mysql.connect().cursor()
+    username = "apmahaja"
+    cursor.execute("select A_date,WorkingFrom,workingto from permanentsubschedule_b where netid='"+username+"' and openShift='N';")
+    myschedule = cursor.fetchall(); 
+    json_data = []
+
+    for result in myschedule:
+        date = result[0].isoformat()
+        workingFrom_hours, workingFrom_mins = result[1].seconds//3600, (result[1].seconds//60)%60
+        workingTo_hours, workingTo_mins = result[2].seconds//3600, (result[2].seconds//60)%60
+
+        data = {
+                'title': username,
+                'start': str(date) + " " + str(workingFrom_hours) +":"+ str(workingFrom_mins),
+                'end': str(date) + " " + str(workingTo_hours) +":"+ str(workingTo_mins),
+                'color': "#D44500",
+            }
+        json_data.append(data)
+
+    js= json.dumps(json_data)
+    response = make_response(js)
+    response.headers['Content-Type']='application/json'
+    
+    return response
+
+
+@app.route("/AvailableShifts")   
+def availableShifts():
+    cursor = mysql.connect().cursor()
+    username = "apmahaja"
+    cursor.execute("select A_date,WorkingFrom,workingto from permanentsubschedule_b where openShift='Y';")
+    myschedule = cursor.fetchall(); 
+    json_data = []
+
+    for result in myschedule:
+        date = result[0].isoformat()
+        workingFrom_hours, workingFrom_mins = result[1].seconds//3600, (result[1].seconds//60)%60
+        workingTo_hours, workingTo_mins = result[2].seconds//3600, (result[2].seconds//60)%60
+
+        data = {
+                'title': "Available Shift",
+                'start': str(date) + " " + str(workingFrom_hours) +":"+ str(workingFrom_mins),
+                'end': str(date) + " " + str(workingTo_hours) +":"+ str(workingTo_mins),
+                'color': "#009900",
+            }
+        json_data.append(data)
+
+    js= json.dumps(json_data)
+    response = make_response(js)
+    response.headers['Content-Type']='application/json'
+    
+    return response
+>>>>>>> 626aaa2593ec180b904fcc2a3f26523de964a940
     
 if __name__ == "__main__":
     app.run()

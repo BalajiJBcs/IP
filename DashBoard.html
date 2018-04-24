@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{{ url_for('static',filename='Scheduler/fullcalendar-3.9.0/fullcalendar.css')}}">
+	<link rel="stylesheet" href="DashBoard.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="{{ url_for('static',filename='Scheduler/fullcalendar-3.9.0/lib/jquery.min.js')}}"></script>
+	<script src="{{ url_for('static',filename='Scheduler/fullcalendar-3.9.0/lib/moment.min.js')}}"></script>
+	<script src="{{ url_for('static',filename='Scheduler/fullcalendar-3.9.0/fullcalendar.min.js')}}"></script>
+	<script src="Data.js" type="text/JavaScript"></script>
+	<script src="{{ url_for('static',filename='Chart/Chart.js')}}" type="text/JavaScript"></script>
+	<link rel="stylesheet" href="{{ url_for('static',filename='Chart/chart.css')}}">
+	<link rel="stylesheet" href="{{ url_for('static',filename='Complain/complaint.css')}}">
+	<script src="{{ url_for('static',filename='Scheduler/ReachUs.js')}}"></script>
+</head>
+<body>
+<div class="container">
+<header>
+<!-- <h1 style="font-size:5vw;">Syracuse University</h1> -->
+   <h2>Welcome {{variable}}!</h2>
+   <p hidden id="diningHall">{{variable1}}</p>
+   <span class="glyphicon glyphicon-user"></span>
+</header>
+<div class="mainContainer">
+	<div class="tab"> 
+	  <button class="tablinks" onclick="getActiveTabElement(event,'DashBoard')" id="defaultOpen">
+		<span class="glyphicon glyphicon-home"></span>   DashBoard</button>
+	  <button class="tablinks" onclick="getActiveTabElement(event,'HoursSummary')">
+		<span class="glyphicon glyphicon-time"></span>   Hours Summary</button>
+	  <button class="tablinks" onclick="getActiveTabElement(event,'Complaint')">
+	  <span class="glyphicon glyphicon-pencil"></span>   Complaint</button>
+	  <button class="tablinks" onclick="getActiveTabElement(event,'Warnings')">
+	  <span class="glyphicon glyphicon-flash"></span>   Warnings</button>	
+	  <button class="tablinks" onclick="getActiveTabElement(event,'Contact')">
+		<span class="glyphicon glyphicon-envelope"></span>   Contact</button>
+	  <button class="tablinks" onclick="getActiveTabElement(event,'LogOut')">
+	  <span class="glyphicon glyphicon-off"></span>   Log Out</button> 
+	</div>
+	<div id="schedularBlock">
+	<div id="DashBoard" class="tabcontent">
+		<script src="Scheduler/Scheduler1.js" type="text/JavaScript"></script>
+		<ul class="nav nav-tabs">
+		<li class="active"><a data-toggle="tab" href="#MySchedule"><span class="glyphicon glyphicon-calendar"></span>   My Schedule</a></li>
+		<li><a data-toggle="tab" href="#PickShift"><span class="glyphicon glyphicon-share"></span>   Available Shifts</a></li>
+		<li><a data-toggle="tab" href="#DropShift"><span class="glyphicon glyphicon-download"></span>   Drop Shift</a></li>
+		</ul>
+			<div class="tab-content">
+				<div id="MySchedule" class="tab-pane fade in active">
+					<div id="myScheduleCalender">
+					<script>openMyScheduleCalender();</script>
+					</div>
+				</div>
+				<div id="PickShift" class="tab-pane fade">
+				  <div id="availableShiftsCalender">
+					<script>openSubShiftCalender();</script> 
+				  </div>
+				</div>
+				<div id="DropShift" class="tab-pane fade">
+				  <div id="dropShiftCalender">
+					<script>openDropShiftCalender();</script>
+				  </div>
+				</div>
+			</div>
+	</div>
+	<div id="HoursSummary" class="tabcontent">
+		<script src="Chart/chartSummary.js" type="text/JavaScript"></script>
+		<p align="center">
+			<canvas id="hoursSummaryChart" width="350" height="350" align="right"></canvas>
+		</p>
+		<div> 
+			<div class = "box workedHours"></div><b><i> Working Hours</i></b>
+			</br>
+		</div>
+			<div> 
+			</br>
+			<div class = "box remainingHours"></div><b><i> Remaining Hours</i></b>
+			</div>
+			<script> openHoursSummary();</script>	
+	</div>
+	<div id="Complaint" class="tabcontent">
+		   <form class="modal-content">
+			<div class="container">
+			  <h4>Complaints:</h4>
+			  <p>Please fill in this form to submit complaint.</p>
+			  <hr>
+			  <label for="email"><b>Email</b></label>
+			  <input type="text" placeholder="Enter Email" name="email">
+			  <label for="concern"><b>Whats your concern?</b></label>
+			  <input type="text" placeholder="Enter Concern" name="concern" required>
+			  <label for="explaination"><b>Elaborate</b></label>
+			  </br>
+			  <textarea rows="4" cols="50" name="explaination" placeholder="Write in detail"></textarea>
+			  <!--<input type="textarea" placeholder="Write in detail" name="psw-repeat" required>-->
+			  <p>By clciking on submit, you agree to our<a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+			  <div class="clearfix">
+				<button type="submit" class="btn">Submit</button>
+			  </div>
+			</div>
+	  </form>
+	</div>
+	<div id="Warnings" class="tabcontent">
+
+	</div>
+	<div id="Contact" class="tabcontent">
+		<div id="contactDetails">
+			<img id="managerPic" alt="Manager Photo"></img>
+			<table class="contactDetailsTable">
+			 <tr>
+				<th><label><span class="glyphicon glyphicon-road">  Address: </span></label></th>
+				<td><label id="address1"></label></td>
+			 </tr>
+			  <tr>
+				<th></th>
+				<td><label id="address2"></label></td>
+			 </tr>
+			  <tr>
+				<th><label><span class="glyphicon glyphicon-phone-alt">  Phone: </span></label></th>
+				<td><label id="phone"></label></td>
+			 </tr>
+			 <tr>
+				<th><label><span class="glyphicon glyphicon-user">  Manager: </span></label></th>
+				<td><label id="manager"></label></td>
+			 </tr>
+			 <tr>
+				<th><label><span class="glyphicon glyphicon-envelope">  Email: </span></label></th>
+				<td><label id="email"></label></td>
+			 </tr>
+			</table>
+				<script>updateContact();</script>
+		</div>
+	</div>
+	<div id="LogOut" class="tabcontent">
+		
+	</div>
+	</div>	
+	<div id="detailsContainer">
+		<div id="subShiftBlock">
+			<h4><span class="glyphicon glyphicon-info-sign"></span>   Shift Details</h4>
+			<table class="shiftDetailsTable">
+			 <tr>
+				<th><label for="startDate">Shift Start : </label></th>
+				<td><input type="text" id="startDate" disabled></td>
+			 </tr>
+			  <tr>
+				<th><label for="endDate">Shift End : </label></th>
+				<td><input type="text" id="endDate" disabled></td>
+			 </tr>
+			 <tr id="authorRow">
+				<th><label for="author">Author : </label></th>
+				<td><input type="text" id="author" disabled></td>
+			 </tr>
+			  <tr id="subShiftRow">
+				<th></th>
+				<td><button id="subShift" class="btn" type="submit" onclick="subShift()" onmouseover="setMessage()">Sub Shift</button></td>
+			 </tr>
+			 <tr id="pickShiftRow">
+				<th></th>
+				<td><button id="pickShift" class="grnBtn" type="submit" onclick="pickShift()" onmouseover="setMessage()">Pick Shift</button></td>
+			 </tr>
+			</table>
+			<p id="subShiftResult"></p>		
+		</div>		
+		<div id="hoursBlock">
+			<h4><span class="glyphicon glyphicon-info-sign"></span>   Working Hours Details</h4>
+			<table class="hoursDetailsTable">
+			 <tr>
+				<th><label>Hours worked : </label></th>
+				<td><label id="hoursWorked"></label></td>
+			 </tr>
+			 <tr>
+				<th><label>Hours remaining : </label></th>
+				<td><label id="hoursRemain"></label></td>
+			 </tr>
+			</table>
+			<p id="subShiftResult"></p>		
+		</div>		
+	</div>
+	
+</div>
+</div>
+</body>
+</html> 
