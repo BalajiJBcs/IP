@@ -16,15 +16,17 @@
 	<link rel="stylesheet" href="{{ url_for('static',filename='Chart/chart.css')}}">
 	<link rel="stylesheet" href="{{ url_for('static',filename='Complain/complaint.css')}}">
 	<script src="{{ url_for('static',filename='Scheduler/ReachUs.js')}}"></script>
+			<script>
+			    var diningHall = {{variable1}};
+				alert(diningHall);
+			</script>
 </head>
 <body>
 <div class="container">
 <header>
 <!-- <h1 style="font-size:5vw;">Syracuse University</h1> -->
-   <h2>Welcome {{variable}}!</h2>
-   <p hidden id="diningHall">{{variable1}}</p>
-   
-   <span class="glyphicon glyphicon-user"></span><h4 class="logoutBtn"><a href="/logout">LogOut</a></h4>
+   <h2>Welcome {{variable}} !</h2>
+   <span class="glyphicon glyphicon-user"></span>
 </header>
 <div class="mainContainer">
 	<div class="tab"> 
@@ -38,11 +40,12 @@
 	  <span class="glyphicon glyphicon-flash"></span>   Warnings</button>	
 	  <button class="tablinks" onclick="getActiveTabElement(event,'Contact')">
 		<span class="glyphicon glyphicon-envelope"></span>   Contact</button>
-
+	  <button class="tablinks" onclick="getActiveTabElement(event,'LogOut')">
+	  <span class="glyphicon glyphicon-off"></span>   Log Out</button> 
 	</div>
 	<div id="schedularBlock">
 	<div id="DashBoard" class="tabcontent">
-		<script src="Scheduler/Scheduler1.js" type="text/JavaScript"></script>
+		<script src="Scheduler/Scheduler.js" type="text/JavaScript"></script>
 		<ul class="nav nav-tabs">
 		<li class="active"><a data-toggle="tab" href="#MySchedule"><span class="glyphicon glyphicon-calendar"></span>   My Schedule</a></li>
 		<li><a data-toggle="tab" href="#PickShift"><span class="glyphicon glyphicon-share"></span>   Available Shifts</a></li>
@@ -126,11 +129,12 @@
 				<td><label id="manager"></label></td>
 			 </tr>
 			 <tr>
-				<th><label><span class="glyphicon glyphicon-envelope">  Email: </span></label></th>
+				<th><label><span class="glyphicon glyphicon-envelope">  Email:</span></label></th>
 				<td><label id="email"></label></td>
 			 </tr>
 			</table>
-				<script>updateContact();</script>
+			<p id="tag"></p>
+				<script>updateContact(diningHall);</script>
 		</div>
 	</div>
 	<div id="LogOut" class="tabcontent">

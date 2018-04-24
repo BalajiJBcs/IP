@@ -1,7 +1,6 @@
-function updateContact(varr){
-	var contact= varr;
+function updateContact(){
+	var contact= document.getElementById('diningHall').innerHTML;
 	var pic = new Image(100,100);
-	//alert(contact);
 	if(contact == "Sadler")
 	{
 		pic.src = "Scheduler/DGriffo.jpg";
@@ -55,14 +54,6 @@ function updateContact(varr){
 		document.getElementById("phone").innerHTML ="315-443-1450";
 		document.getElementById("manager").innerHTML ="Stephen Brandt";
 		document.getElementById("email").innerHTML ="sjbrandt@syr.edu";
-	}
-	
-	else 
-	{
-		pic.src = "Scheduler/logo.gif";
-		document.getElementById("address1").innerHTML = "Sorry you have not been yet employed by any hall";
-		document.getElementById("phone").innerHTML ="Kindly contact respective dining halls";
-		document.getElementById("email").innerHTML ="<a href =http://foodservices.syr.edu/>"+ "Food Service" + "</a>" ;
 	}
 	
 	document.getElementById('managerPic').src = pic.src;
