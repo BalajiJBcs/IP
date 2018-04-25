@@ -16,7 +16,7 @@ Query OK, 1 row affected (0.08 sec)
 CREATE TABLE DiningHalls(
 diningName VARCHAR (50) NOT NULL,
 diningAddress VARCHAR(100) NOT NULL,
-diningPhone VARCHAR(12) NOT NULL,
+diningPhone VARCHAR(20) NOT NULL,
 diningManager VARCHAR(30) NOT NULL,
 diningEmail VARCHAR(50) NOT NULL,
 PRIMARY KEY(diningName)
